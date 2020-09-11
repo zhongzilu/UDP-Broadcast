@@ -17,7 +17,7 @@ void parseOptions(int argc, char *argv[]){
 		char * opt = argv[i];
 		if(strcmp("-h", opt) == 0 || strcmp("--help", opt) == 0) {
 			printf("Usage: \n");
-			printf("  mini-server-for-linux [options]\n\n");
+			printf("  %s [options]\n\n", argv[0]);
 			printf("OPTIONS:\n");
 			printf("  -c, --config : set service config file path\n\n");
 			printf("  -p, --port   : set server listening port.\n\n");

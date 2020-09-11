@@ -14,7 +14,7 @@ void parseOptions(int argc, char *argv[]){
 		char * opt = argv[i];
 		if(strcmp("-h", opt) == 0 || strcmp("--help", opt) == 0) {
 			printf("Usage: \n");
-			printf("  mini-client-for-linux [flag]\n\n");
+			printf("  %s [flag]\n\n", argv[0]);
 			printf("  udp_broadcast_client [target_ip] [target_port]\n\n");
 			printf("Flags:\n");
 			printf("  -p, --port   : set send port.\n\n");
