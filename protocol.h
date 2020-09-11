@@ -4,6 +4,6 @@
 #define PREFIX '$'
 #define DISCOVER "$discover$"
 #define RESP "$resp$"
-#define EXIT
+#define EXIT "exit"
 
 #endif
