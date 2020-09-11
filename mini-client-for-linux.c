@@ -3,9 +3,8 @@
 //是否开启输入模式,若开启,则发送的内容需要手动输入,默认关闭
 BOOL INPUT = FALSE;
 
-// int g_exit = 0;
 // static void sighandle(int sign){
-// 	g_exit = -1;
+// 	exit(1);
 // }
 
 void parseOptions(int argc, char *argv[]){
@@ -93,7 +92,7 @@ int main(int argc, char *argv[])
 		if (INPUT) {
 			printf("Input: ");
 			scanf("%s", input);
-			if (strcmp("exit", input) == 0) break;
+			if (strcmp(EXIT, input) == 0) break;
 			send_msg(sock, input, strlen(input), (struct sockaddr *)&peer_addr, peer_addrlen);
 			bzero(input, sizeof(input));
 		} else {
@@ -122,7 +121,7 @@ int main(int argc, char *argv[])
 	}
 
 	memset(msg, 0, sizeof(msg));
-	memcpy(msg, "exit", 5);
+	memcpy(msg, EXIT, 5);
 	send_msg(sock, msg, strlen(msg), (struct sockaddr *)&peer_addr, peer_addrlen);
 	close(sock);
 	

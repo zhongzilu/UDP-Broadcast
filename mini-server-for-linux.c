@@ -6,9 +6,8 @@
 //服务列表配置文件路径
 char * PATH = "./ssdp.service";
 
-// int g_exit = 0;
 // static void sighandle(int sign){
-// 	g_exit = -1;
+// 	exit(1);
 // }
 
 void parseOptions(int argc, char *argv[]){
@@ -151,7 +150,7 @@ int main(int argc, char *argv[])
 		if (DEBUG)
 			printf("\nreceived msg from [%s]: %s\n", peer_name, recv_msg);
 
-		if (strcmp("exit", recv_msg) == 0) {
+		if (strcmp(EXIT, recv_msg) == 0) {
 			printf("client [%s] exit.\n", peer_name);
 			bzero(recv_msg, sizeof(recv_msg));
 			continue;
@@ -189,8 +188,7 @@ int main(int argc, char *argv[])
 		bzero(recv_msg, sizeof(recv_msg));
 	}
 
-	char msg[] = "exit";
-	send_msg(sock, msg, strlen(msg), (struct sockaddr *)&peer_addr, peer_addrlen);
+	send_msg(sock, EXIT, strlen(EXIT), (struct sockaddr *)&peer_addr, peer_addrlen);
 
 	close(sock);
 
